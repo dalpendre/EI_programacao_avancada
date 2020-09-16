@@ -1,0 +1,5 @@
+BasedOnStyle: google
+IndentWidth: 4
+SortIncludes: false
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: false
