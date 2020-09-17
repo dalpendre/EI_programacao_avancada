@@ -8,7 +8,8 @@
 
 #include "debug.h"
 
-int main(void) {
+int main(void) 
+{
     pid_t pid1 = fork();
     if (pid1 == 0) { /* Processo filho */
         printf("Filho 1\n");

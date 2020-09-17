@@ -8,11 +8,16 @@
 
 #include "debug.h"
 
-int main(void) {
+int main(void) 
+{
     int result = system("ps -l");
-    if (result < 0) {
+    
+    if (result < 0) 
+    {
         ERROR(1, "Chamada 'a funcao system() falhou.");
-    } else {
+    } 
+    else 
+    {
         printf("Chamada 'a funcao system() retornou: %d.\n", result);
     }
 

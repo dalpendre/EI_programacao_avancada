@@ -1,0 +1,5 @@
+ps aux / ps -ef --> Mostra todos os processos de todos os utilizadores no instante em que o comando foi executado
+
+top --> Lista de processos em real-time
+
+gcc -o nomeexec lab1.c	--> compila ficheiro lab1.c com o nome de executável "nomeexec" e ignora os warnings
