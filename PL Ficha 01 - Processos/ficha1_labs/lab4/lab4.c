@@ -13,7 +13,7 @@ int main(void) {
     if (b == 0 && a > 0)
         d = fork();
 
-    printf("Processo %d (%d) ", getpid(), getppid());
+    printf("Processo %d (%d)\n", getpid(), getppid());
     printf("a = %d b = %d c = %d d = %d\n", a, b, c, d);
 
     return 0;
