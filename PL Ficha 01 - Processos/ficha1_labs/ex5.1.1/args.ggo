@@ -1,6 +1,6 @@
-package "Example of .ggo file"
+package "Ex5.1.1"
 version "1.0"
-purpose "Simple example (optional)"
+purpose "Ex5.1.1 da Ficha 1 - Processos"
 description "description needed (optional)"
 versiontext "versiontext needed (optional)"
 

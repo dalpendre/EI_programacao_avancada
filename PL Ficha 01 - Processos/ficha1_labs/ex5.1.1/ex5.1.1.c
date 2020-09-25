@@ -14,20 +14,28 @@ int main(int argc, char *argv[])
 {	
 	struct gengetopt_args_info args_info;
 	
-	if(cmdline_parser(argc, argv, &args_info) != 0)
+	if(cmdline_parser(argc, argv, &args_info))
 	{
-		exit(1);
+		ERROR(1, "Erro: execução de cmlin_parser\n");
 	}
 
-	pid_t pids[args_info.num_procs_arg];
+	if(args_info.num_procs_arg < 1)
+	{
+		ERROR(1, "num_procs tem que ser inteiro positivo!\n");
+	}
 
+	pid_t pid;
 	for(int i = 0; i < args_info.num_procs_arg; i++)
 	{
-		pids[i] = fork();
+		pid = fork();
 
-		if(pids[i] == 0) //Processos filhos (criados)
-		{	
-			printf("Processo #%i (PID=%d)\n", i+1, getpid());
+		if(pid == -1) //Processos filhos (criados)
+		{
+			ERROR(2, "erro no fork()\n");
+		}
+		else if(pid == 0)
+		{
+			printf("Processo #%d (PID=%d)\n", i+1, getpid());
 			exit(0);
 		}
 	}
