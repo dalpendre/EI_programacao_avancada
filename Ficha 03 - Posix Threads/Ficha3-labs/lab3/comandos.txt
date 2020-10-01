@@ -1,0 +1,3 @@
+Este ficheiro serve apenas para guardar a resposta ao Lab 3:
+Comando(s):
+
