@@ -45,16 +45,17 @@ int main(int argc, char *argv[])
 	sigemptyset(&act.sa_mask);
 
 	act.sa_flags = SA_SIGINFO; /*info adicional sobre o sinal */
-	act.sa_flags |= SA_RESTART; /*recupera chamadas bloqueantes*/
+	//act.sa_flags |= SA_RESTART; /*recupera chamadas bloqueantes*/
 
 	/* Captura do sinal SIGUSR1 */
-	if(sigaction(SIGUSR1, &act, NULL) < 0){
-	  ERROR(1, "sigaction - SIGUSR1");
+	if(sigaction(SIGUSR1, &act, NULL) < 0)
+	{
+		ERROR(1, "sigaction - SIGUSR1");
 	}
 
 	printf("O processo esta pronto para receber sinais [SIGUSR1]...\n");
-	printf("PID do processo: %d\n", getpid() );
-	printf("Introduza informacao atraves do teclado:\n");
+	printf("PID do processo: %d\n", getpid());
+	printf("Introduza informacao atraves do teclado: \n");
 
 	n = read(0, buf, MAX);
 	if (n < 0)

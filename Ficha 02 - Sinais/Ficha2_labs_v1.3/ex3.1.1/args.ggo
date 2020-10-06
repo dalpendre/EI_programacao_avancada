@@ -1,0 +1,19 @@
+package "showFirst"
+version "1.0"
+purpose "Ficha 02 - Sinais"
+description "Exercício 3.1.1"
+
+#----------------------------
+# independent options
+#----------------------------
+# Mandatory option
+#option "folder" f "folder" string typestr="dirname" required
+
+# Optional
+#option "num" n "number" int optional
+
+#
+# NOTE: support for this file needs to be enabled in 'makefile'
+#
+
+option "file" f "opção para indicar file" string required

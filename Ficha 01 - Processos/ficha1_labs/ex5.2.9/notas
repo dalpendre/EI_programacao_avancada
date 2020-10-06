@@ -1,0 +1,13 @@
+execl (sem p) -> path awarable tenho que indicar caminho completo do programa 
+
+com path não é path awarable portanto temos que escrever o caminho para o executável
+
+Exemplos
+
+execl("bin/ls", "ls", "-la", NULL);
+execlp("ls", "ls", NULL);
+
+execvp -> passa-se array criado antes com parametros (exemplo abaixo)
+
+char *args[]={"./EXEC", NULL};
+execvp(args[0], args);
