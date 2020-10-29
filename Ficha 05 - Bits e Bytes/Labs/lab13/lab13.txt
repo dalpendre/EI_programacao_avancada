@@ -1,0 +1,29 @@
+
+Considere o código apresentado de seguida: 
+
+	#include <stdio.h>	
+	int main(int argc, char *argv[])
+	{
+		 (void)argc; (void)argv;
+	
+		int positive = 998;
+		int negative = -998;
+		int positive_shift, negative_shift;
+		int i;
+		
+		for(i = 0; i < 4; i++){
+			printf("===[shift right %d]===\n", i);
+			positive_shift = positive >> i;
+			negative_shift = negative >> i;
+			printf("positive_shift = %d\n", positive_shift);
+			printf("negative_shift = %d\n", negative_shift);
+		}
+		
+		return 0;
+	}
+
+Execute-o e indique qual é o bit (0 ou 1) que é inserido quando se efetua uma operação de rotação à direita. 
+Justifique.
+
+---------------------------------------------------------------------------------------------
+

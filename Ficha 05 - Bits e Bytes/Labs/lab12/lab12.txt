@@ -1,0 +1,6 @@
+﻿
+Indique o código C que permite a criação das seguintes máscaras binárias, que devem ter 32 bits cada:
+
+a) 0...01 -> C = ?
+b) 0...10 -> C = ?
+c) 0...10101 -> C = ?

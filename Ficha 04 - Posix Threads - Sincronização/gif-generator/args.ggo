@@ -1,0 +1,6 @@
+package "Game of life GIF generator"
+version "1.0"
+purpose "generates an animated GIF that represents the evolution of a grid of cells"
+
+# Mandatory option
+option "folder" f "Folder where generation files are located" string typestr="dirname" required

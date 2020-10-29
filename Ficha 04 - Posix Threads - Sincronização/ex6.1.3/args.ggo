@@ -1,0 +1,22 @@
+package "Example of .ggo file"
+version "1.0"
+purpose "Simple example (optional)"
+description "description needed (optional)"
+versiontext "versiontext needed (optional)"
+
+#----------------------------
+# independent options
+#----------------------------
+# Mandatory option
+option "folder" f "folder" string typestr="dirname" required
+
+# Optional
+option "num" n "number" int optional
+
+#
+# NOTE: support for this file needs to be enabled in 'makefile'
+#
+
+option "num_threads" t "Número de threads" int required
+option "ficheiro" s "Ficheiro a ler" string required
+option "tamanho_bloco" b "Tamanho do bloco" int required

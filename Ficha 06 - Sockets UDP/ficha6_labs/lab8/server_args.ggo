@@ -1,0 +1,9 @@
+package "Example of .ggo file"
+version "1.0"
+purpose "Simple example (optional)"
+description "description needed (optional)"
+versiontext "versiontext needed (optional)"
+
+# Mandatory option
+option "porto" p "UDP Socket bind port" int required
+

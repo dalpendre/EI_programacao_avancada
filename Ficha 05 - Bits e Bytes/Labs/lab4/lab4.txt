@@ -1,0 +1,14 @@
+﻿
+a) Converta o valor hexadecimal 0x912 para binário. 
+
+Hexadecimal = 0x912 
+
+Binário = 1001 0001 0010
+
+---------------------------------------------------------------------------------------------
+
+b) Converta o valor binário 111.0010.0001.0110 para hexadecimal.
+
+Binário = 111001000010110
+
+Hexadecimal = 7216

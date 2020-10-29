@@ -17,13 +17,15 @@ int main(int argc, char *argv[])
 	pthread_t tid;
 	(void)argc;(void)argv;
 
-	if ( (errno = pthread_create(&tid, NULL, hello, NULL)) != 0) {
+	if((errno = pthread_create(&tid, NULL, hello, NULL)) != 0) 
+	{
 		ERROR(C_ERRO_PTHREAD_CREATE, "pthread_create() failed!");
 	}	
 	
 	printf("Processo: TID da thread criada = [%lu]\n", (unsigned long) tid);	
 	
-	if ((errno = pthread_join(tid, NULL)) != 0) {
+	if ((errno = pthread_join(tid, NULL)) != 0) 
+	{
 		ERROR(C_ERRO_PTHREAD_JOIN, "pthread_join() failed!");
 	}
 

@@ -5,6 +5,8 @@ CFLAGS=-Wall -W
 PROG=lab2
 OBJS=debug.o ${PROG}.o
 
+LIBS=-lpthread
+
 .PHONY: clean
 
 ${PROG}: ${OBJS}
