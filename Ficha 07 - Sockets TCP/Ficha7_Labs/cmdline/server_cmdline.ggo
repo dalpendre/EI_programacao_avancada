@@ -1,0 +1,5 @@
+package "Servidor TCP"
+version "1.0"
+purpose "Lab 7"
+
+option	"porto"	p	"Porto"	int	yes

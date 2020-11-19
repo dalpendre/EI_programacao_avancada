@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
 	size_t size_bits = sizeof(valor) * 8;
 	unsigned int i;
 	
-	for(i = 0; i < size_bits; i++){
+	for(i = 0; i < size_bits; i++)
+	{
 		valor_shift = valor << i;
 		printf("[shift (valor << %02u)]%u\n", i, valor_shift);
 	}

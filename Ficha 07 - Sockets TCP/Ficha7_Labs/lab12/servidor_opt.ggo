@@ -1,0 +1,4 @@
+package "Servidor UDP"
+version "1.0"
+purpose "Servidor UDP Adivinha Numero"
+option	"porto"	p	"Porto de escuta"	int	yes

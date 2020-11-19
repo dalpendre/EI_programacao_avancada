@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	 short C = A & B;	/* applies binary AND */
 
 	 printf("A = 0x%hx, B = 0x%hx, C = 0x%hx\n", A, B, C);
-	 printf("size_of_short = %d\n", sizeof(short) * 8);
+	 printf("size_of_short = %ld\n", sizeof(short) * 8);
 
 	 return 0;
 }

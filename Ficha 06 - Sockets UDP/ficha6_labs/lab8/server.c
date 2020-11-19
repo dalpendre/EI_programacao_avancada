@@ -43,8 +43,9 @@ int main(int argc, char *argv[]) {
     if (bind(sock_fd, (struct sockaddr *)&ser_addr, sizeof(ser_addr)) == -1)
         ERROR(3, "bind server");
 
-    srand(time(NULL));
-    while (1) {
+    srand(time(NULL));  //Atualizar as seeds usadas pelo srand
+    while (1) 
+    {
         uint16_t gerado = 1 + (uint16_t)(rand() % 100);
 #ifdef SHOW_DEBUG
         DEBUG("Numero aleatório = %hu", gerado);
@@ -53,15 +54,16 @@ int main(int argc, char *argv[]) {
         while (!processa_pedido(sock_fd, gerado))
             ;
     }
+    
     return 0;
 }
 
-int processa_pedido(int fd, uint16_t n_serv) {
+int processa_pedido(int fd, uint16_t n_serv) 
+{
     uint16_t n_cli;
     struct sockaddr_in cli_addr;
     socklen_t len = sizeof(cli_addr);
-    if (recvfrom(fd, &n_cli, sizeof(n_cli), 0, (struct sockaddr *)&cli_addr,
-                 &len) == -1)
+    if (recvfrom(fd, &n_cli, sizeof(n_cli), 0, (struct sockaddr *)&cli_addr, &len) == -1)
         ERROR(4, "recvfrom");
 #ifdef SHOW_DEBUG
     char ip[20];

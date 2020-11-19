@@ -1,0 +1,6 @@
+package "Cliente TCP"
+version "1.0"
+purpose "Lab 7"
+
+option	"ip"	i	"Endereco IP"	string	yes	
+option	"porto"	p	"Porto"	int	yes
