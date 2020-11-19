@@ -15,7 +15,8 @@
 #include "common.h"
 #include "client_opt.h"
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
     /* Estrutura gerada pelo utilitario gengetopt */
     struct gengetopt_args_info args_info;
 

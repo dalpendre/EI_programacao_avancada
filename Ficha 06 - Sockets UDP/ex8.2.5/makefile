@@ -18,7 +18,7 @@ LDFLAGS=#-pg
 IFLAGS=-linux -brs -brf -br
 
 # name of the server executable
-SERVER=server
+SERVER=StatServerUdp
 
 # Prefix for the server's gengetopt file
 SERVER_OPT=server_opt
