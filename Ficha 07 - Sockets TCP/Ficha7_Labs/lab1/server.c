@@ -47,7 +47,6 @@ int main(int argc, char *argv[])
 		ERROR(53, "Can't listen for %d clients", tcp_max_simultaneous_clients);
 
     // TCP IPv4: "accept" 1 cliente (bloqueante)
-	char tcp_client_string_ip[20];
 	struct sockaddr_in tcp_client_endpoint;
 	socklen_t tcp_client_endpoint_length = sizeof(struct sockaddr_in);
 	int tcp_client_socket;

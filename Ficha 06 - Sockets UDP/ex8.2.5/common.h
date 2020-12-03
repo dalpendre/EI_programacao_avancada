@@ -3,5 +3,6 @@
 
 #define ERR_ARGS 1
 #define MAX_FILENAME_SIZE 255
+#define MAX_DATE 80
 
 #endif
