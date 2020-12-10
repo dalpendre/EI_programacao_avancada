@@ -1,0 +1,6 @@
+package "Client"
+version "1.0"
+purpose "An IP stack client"
+option	"ip"	-	"IP adddress"	string	yes
+option	"port"	p	"Port number"	int	yes
+option  "threads" - "Threads a usar" int yes

@@ -1,0 +1,6 @@
+package "Client"
+version "1.0"
+purpose "An IP stack client"
+option	"ip"	-	"IP adddress"	string	yes
+option	"port"	-	"Port number"	int	yes
+option "filename" f "Ficheiro a criar que recebe conteúdo do server" string yes

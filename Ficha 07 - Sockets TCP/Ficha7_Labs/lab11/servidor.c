@@ -21,7 +21,8 @@ int main(int argc, char *argv[])
 
     /* Processa os parâmetros da linha de comando */
     struct gengetopt_args_info args_info;
-    if (cmdline_parser(argc, argv, &args_info) != 0){
+    if (cmdline_parser(argc, argv, &args_info) != 0)
+    {
 	    fprintf(stderr, "ERROR: cmdline_parser");
 	    exit(C_ERRO_CMDLINE);
     }
@@ -44,8 +45,9 @@ int main(int argc, char *argv[])
     printf("Servidor %s no porto %d\n", argv[0], args_info.porto_arg);
 
     /* ciclo infinito para atender todos os clientes */
-    while (1) {
-	cli_len = sizeof(struct sockaddr);
+    while (1) 
+    {
+	    cli_len = sizeof(struct sockaddr);
         /* accept - bloqueante */
         cli_fd = accept(ser_fd, (struct sockaddr *) &cli_addr, &cli_len);
         if (cli_fd < 0){
@@ -66,11 +68,9 @@ int main(int argc, char *argv[])
     return (0);
 }
 
-
-
 void processaCliente(int fd) 
 {
-    uint16_t  n_cli, n_serv, res;
+    uint16_t  n_cli, n_serv, res; 
 
     srand(time(NULL));
     n_serv = 1 + (uint16_t) (100.0 * rand() / (RAND_MAX + 1.0));

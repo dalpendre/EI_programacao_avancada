@@ -1,0 +1,4 @@
+package "Server"
+version "1.0"
+purpose "An IP stack server"
+option	"port"	p	"Listening port number"	int	yes

@@ -1,10 +1,3 @@
-/**
-* @file main.c
-* @brief Description
-* @date 2018-1-1
-* @author name of author
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

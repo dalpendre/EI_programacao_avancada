@@ -15,7 +15,6 @@
 #include "common.h"
 #include "server_opt.h"
 
-
 int main(int argc, char *argv[])
 {
     /* Estrutura gerada pelo utilitario gengetopt */

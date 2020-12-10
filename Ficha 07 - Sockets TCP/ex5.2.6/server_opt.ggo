@@ -1,0 +1,5 @@
+package "Server"
+version "1.0"
+purpose "An IP stack server"
+option	"port"	-	"Listening port number"	int	yes
+option  "lugares" l "Números de lugares máximos" int yes

@@ -50,7 +50,7 @@
 	struct sockaddr_in tcp_client_endpoint;
 	socklen_t tcp_client_endpoint_length = sizeof(struct sockaddr_in);
 	char tcp_client_string_ip[20];	
-	if (getsockname(tcp_client_socket, (struct sockaddr *)&tcp_client_endpoint, &tcp_client_endpoint_length) == -1)
+	if(getsockname(tcp_client_socket, (struct sockaddr *)&tcp_client_endpoint, &tcp_client_endpoint_length) == -1)
 		ERROR(44, "Can't connect @tcp_server_endpoint");
 	printf("cliente: %s@%d\n", inet_ntop(AF_INET, &tcp_client_endpoint.sin_addr, tcp_client_string_ip, sizeof(tcp_client_string_ip)), htons(tcp_client_endpoint.sin_port));
 
