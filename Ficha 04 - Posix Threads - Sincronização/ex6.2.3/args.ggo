@@ -1,0 +1,9 @@
+package "Example of .ggo file"
+version "1.0"
+purpose "Simple example (optional)"
+description "description needed (optional)"
+versiontext "versiontext needed (optional)"
+
+option "threads" t "número de threads a usar" int yes
+option "ficheiro" f "ficheiro a contar" string yes
+option "bloco" b "bloco de bytes a contar" int yes

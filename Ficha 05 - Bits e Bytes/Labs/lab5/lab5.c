@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	 short B = ~A;	/* ~ => negacao de A (inverte bit a bit) */
 
 	 printf("A = %hx, B = %hx\n", A, B);
-	 printf("size_of_short = %d\n", sizeof(short) * 8);
+	 printf("size_of_short = %lu\n", sizeof(short) * 8);
 
 	 return 0;
 }

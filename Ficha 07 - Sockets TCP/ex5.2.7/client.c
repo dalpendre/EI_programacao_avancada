@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
     /* Processa os parametros da linha de comando */
     if (cmdline_parser (argc, argv, &args_info) != 0)
-	{
+    {
 	    exit(ERR_ARGS);
     }
 
@@ -44,10 +44,9 @@ int main(int argc, char *argv[])
 		case -1:
 			ERROR(22, "Cannot convert IP address (IPv4)");
 	}
-	tcp_server_endpoint.sin_port = htons(args_info.port_arg);						// Server port
+	tcp_server_endpoint.sin_port = htons(args_info.port_arg);	
 
-	printf("a ligar ao servidor... "); 
-	fflush(stdout);
+    printf("a ligar ao servidor... "); fflush(stdout);
 	if (connect(tcp_client_socket, (struct sockaddr *) &tcp_server_endpoint, sizeof(struct sockaddr_in)) == -1)
 		ERROR(43, "Can't connect @tcp_server_endpoint");
 	printf("ok. \n");
@@ -56,52 +55,26 @@ int main(int argc, char *argv[])
 	struct sockaddr_in tcp_client_endpoint;
 	socklen_t tcp_client_endpoint_length = sizeof(struct sockaddr_in);
 	char tcp_client_string_ip[20];	
-	if (getsockname(tcp_client_socket, (struct sockaddr *)&tcp_client_endpoint, &tcp_client_endpoint_length) == -1)
+	if(getsockname(tcp_client_socket, (struct sockaddr *)&tcp_client_endpoint, &tcp_client_endpoint_length) == -1)
 		ERROR(44, "Can't connect @tcp_server_endpoint");
 	printf("cliente: %s@%d\n", inet_ntop(AF_INET, &tcp_client_endpoint.sin_addr, tcp_client_string_ip, sizeof(tcp_client_string_ip)), htons(tcp_client_endpoint.sin_port));
 
-    //Leitura de mensagem até "fim"
-    char message[MAX_MSG];
-	char echo[MAX_MSG];
+    //Send to server
+    ssize_t tcp_read_bytes, tcp_sent_bytes;
+    ssize_t wordsize = strlen(args_info.word_arg);
+    char echo[strlen(wordsize)];
+			
+	// TCP IPv4: "send" para o servidor
+	printf("a enviar dados para o servidor... "); fflush(stdout);
+	if ((tcp_sent_bytes = send(tcp_client_socket, args_info.word_arg, sizeof(args_info.word_arg), 0)) == -1)
+		ERROR(46, "Can't send to server");
+	printf("ok.  (%d bytes enviados)\n", (int)tcp_sent_bytes);
 
-	ssize_t tcp_read_bytes, tcp_sent_bytes;
-
-    do
-	{
-		printf("\n\tIntroduza uma mensagem: ");
-		if(fgets(message, MAX_MSG-1, stdin) == NULL)
-		{
-			if(feof(stdin))
-			{
-				break;
-			}
-		}
-		message[strlen(message)-1] = '\0';
-
-		if(strlen(message) == 0)
-		{
-			continue;
-		}
-
-		if(strcmp(message, "fim") == 0)
-		{
-			break;
-		}
-
-        // TCP IPv4: "send" para o servidor
-        printf("a enviar dados para o servidor... "); 
-        fflush(stdout);
-        if((tcp_sent_bytes = send(tcp_client_socket, message, MAX_MSG, 0)) == -1)
-            ERROR(46, "Can't send to server");
-        printf("ok.  (%d bytes enviados)\n", (int)tcp_sent_bytes);
-
-        // TCP IPv4: "recv" do servidor (bloqueante)
-       /* printf("à espera de dados do servidor... ");
-        fflush(stdout);
-        if ((tcp_read_bytes = recv(tcp_client_socket, echo, sizeof(echo), 0)) == -1)
-            ERROR(47, "Can't recv from server");
-        printf("ok.  (%d bytes recebidos)\n", (int)tcp_read_bytes);	*/
-	}while(1);
+	// TCP IPv4: "recv" do servidor (bloqueante)
+	printf("à espera de dados do servidor... "); fflush(stdout);
+	if ((tcp_read_bytes = recv(tcp_client_socket, echo, sizeof(echo), 0)) == -1)
+		ERROR(47, "Can't recv from server");
+	printf("ok.  (%d bytes recebidos)\n", (int)tcp_read_bytes);
 
     cmdline_parser_free(&args_info);
 

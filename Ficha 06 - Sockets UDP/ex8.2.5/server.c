@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
 	socklen_t udp_client_endpoint_length = sizeof(struct sockaddr_in);
 	struct sockaddr_in udp_client_endpoint;
-	ssize_t udp_read_bytes/*, udp_sent_bytes*/;
+	ssize_t udp_read_bytes, udp_sent_bytes;
 
     while(1)
     {
@@ -77,23 +77,23 @@ int main(int argc, char *argv[])
             struct tm lt;
             localtime_r(&st.st_atime, &lt); /* converts to struct tm */
             strftime(lastAccess, sizeof(lastAccess), "%a, %d %b %Y %T", &lt);
-            //printf("\tLast Access: <%s>\n", lastAccess);
+            printf("\tLast Access: <%s>\n", lastAccess);
             localtime_r(&st.st_mtime, &lt);
             strftime(lastModified, sizeof(lastModified), "%a, %d %b %Y %T", &lt);
-            //printf("\tLast Modified: <%s>\n", lastModified);
+            printf("\tLast Modified: <%s>\n", lastModified);
             localtime_r(&st.st_ctime, &lt);
             strftime(lastChanged, sizeof(lastChanged), "%a, %d %b %Y %T", &lt);
-            //printf("\tLast Changed: <%s>\n", lastChanged);
+            printf("\tLast Changed: <%s>\n", lastChanged);
         }
 
         // UDP IPv4: "sendto" para o cliente
-        /*printf("a enviar dados para o cliente... "); 
+        printf("a enviar dados para o cliente... "); 
         fflush(stdout);
         if ((udp_sent_bytes = sendto(udp_server_socket, filename, MAX_FILENAME_SIZE, 0, 
         (struct sockaddr *) &udp_client_endpoint, udp_client_endpoint_length)) == -1)
             ERROR(35, "Can't sendto client");
             
-        printf("ok.  (%d bytes sent)\n", (int)udp_sent_bytes);*/
+        printf("ok.  (%d bytes sent)\n", (int)udp_sent_bytes);
     }
 
     if (close(udp_server_socket) == -1)
